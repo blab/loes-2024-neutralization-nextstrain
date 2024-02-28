@@ -17,6 +17,12 @@ Clone this repository into the flu workflow directory.
 git clone https://github.com/huddlej/loes-neutralization-models.git
 ```
 
+Copy the neutralization data into the build config directory.
+
+``` bash
+cp ~/231006_NT50spreandpost_30individuals.csv loes-neutralization-models/build-configs/loes/
+```
+
 Run the workflow with the build config for this analysis.
 
 ``` bash
