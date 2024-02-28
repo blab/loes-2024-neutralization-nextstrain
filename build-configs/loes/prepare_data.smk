@@ -4,7 +4,7 @@ rule rename_strains_in_neutralization_data:
         strain_name_mapping="loes-neutralization-models/build-configs/loes/strain_name_mapping.tsv",
     output:
         data="loes-neutralization-models/build-configs/loes/231006_NT50spreandpost_30individuals_renamed.csv",
-    conda: "../../workflow/envs/nextstrain.yaml"
+    conda: "../../../workflow/envs/nextstrain.yaml"
     shell:
         """
         csvtk replace \
@@ -22,7 +22,7 @@ rule get_strains_from_neutralization_data:
         data="loes-neutralization-models/build-configs/loes/231006_NT50spreandpost_30individuals_renamed.csv",
     output:
         data="loes-neutralization-models/build-configs/loes/strains.txt",
-    conda: "../../workflow/envs/nextstrain.yaml"
+    conda: "../../../workflow/envs/nextstrain.yaml"
     shell:
         """
         csvtk cut \
@@ -38,7 +38,7 @@ rule convert_neutralization_data_into_initial_titers_format:
         data="loes-neutralization-models/build-configs/loes/231006_NT50spreandpost_30individuals_renamed.csv",
     output:
         data="loes-neutralization-models/build-configs/loes/231006_NT50spreandpost_30individuals_initial_titers.csv",
-    conda: "../../workflow/envs/nextstrain.yaml"
+    conda: "../../../workflow/envs/nextstrain.yaml"
     shell:
         """
         csvtk mutate2 -n serum_id -e '$individual + "-" + $day_order' {input.data} \
@@ -53,7 +53,7 @@ rule get_reference_strain_per_serum_id_by_max_titer:
         data="loes-neutralization-models/build-configs/loes/231006_NT50spreandpost_30individuals_initial_titers.csv",
     output:
         data="loes-neutralization-models/build-configs/loes/231006_NT50spreandpost_30individuals_reference_strain.csv",
-    conda: "../../workflow/envs/nextstrain.yaml"
+    conda: "../../../workflow/envs/nextstrain.yaml"
     shell:
         """
         csvtk sort -k titer:nr {input.data} \
@@ -68,7 +68,7 @@ rule merge_titers_and_reference_strains_by_serum_id:
         references="loes-neutralization-models/build-configs/loes/231006_NT50spreandpost_30individuals_reference_strain.csv",
     output:
         data="loes-neutralization-models/build-configs/loes/231006_NT50spreandpost_30individuals_titers.tsv",
-    conda: "../../workflow/envs/nextstrain.yaml"
+    conda: "../../../workflow/envs/nextstrain.yaml"
     shell:
         """
         csvtk join -f serum_id {input.data} {input.references} \
