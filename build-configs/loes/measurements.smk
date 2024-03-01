@@ -1,17 +1,30 @@
 ruleorder: concat_custom_measurements > concat_measurements
 
+rule calculate_log2_titer_for_loes_measurements:
+    input:
+        titers="loes-neutralization-models/build-configs/loes/231006_NT50spreandpost_30individuals_titers.tsv",
+    output:
+        titers="loes-neutralization-models/build-configs/loes/231006_NT50spreandpost_30individuals_log2_titers.tsv",
+    conda: "../../../workflow/envs/nextstrain.yaml"
+    shell:
+        """
+        python3 loes-neutralization-models/scripts/calculate_log2_titer.py \
+            --titers {input.titers} \
+            --output {output.titers}
+        """
+
 rule export_loes_measurements:
     input:
-        distances="loes-neutralization-models/build-configs/loes/231006_NT50spreandpost_30individuals_titers.tsv",
+        titers="loes-neutralization-models/build-configs/loes/231006_NT50spreandpost_30individuals_log2_titers.tsv",
     output:
         measurements="builds/{build_name}/{segment}/measurements_loes.json",
     conda: "../../../workflow/envs/nextstrain.yaml"
     params:
         key="DRIVE_NT50",
         strain_column="virus_strain",
-        value_column="titer",
-        title="NT50s for pre- and post-vaccination DRIVE sera",
-        x_axis_label="NT50",
+        value_column="log2_titer",
+        title="log2 NT50s for pre- and post-vaccination DRIVE sera",
+        x_axis_label="log2 NT50",
         thresholds=[0.0],
         grouping_columns=[
             "serum_id",
@@ -22,6 +35,7 @@ rule export_loes_measurements:
         include_columns=[
             "virus_strain",
             "titer",
+            "log2_titer",
             "serum_id",
             "individual",
             "vaccination_status",
@@ -29,7 +43,7 @@ rule export_loes_measurements:
     shell:
         """
         augur measurements export \
-            --collection {input.distances} \
+            --collection {input.titers} \
             --key {params.key} \
             --strain-column {params.strain_column} \
             --value-column {params.value_column} \
