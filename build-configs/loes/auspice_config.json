@@ -146,7 +146,6 @@
   "panels": [
     "tree",
     "measurements",
-    "map",
     "entropy",
     "frequencies"
   ]
