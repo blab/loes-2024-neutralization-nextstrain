@@ -38,13 +38,23 @@
       "type": "categorical"
     },
     {
-      "key": "cTiter",
-      "title": "Antigenic advance (tree model)",
+      "key": "DRIVE_pre_cTiter",
+      "title": "Antigenic advance (tree model, prevax)",
       "type": "continuous"
     },
     {
-      "key": "cTiterSub",
-      "title": "Antigenic advance (sub model)",
+      "key": "DRIVE_pre_cTiterSub",
+      "title": "Antigenic advance (sub model, prevax)",
+      "type": "continuous"
+    },
+    {
+      "key": "DRIVE_post_cTiter",
+      "title": "Antigenic advance (tree model, postvax)",
+      "type": "continuous"
+    },
+    {
+      "key": "DRIVE_post_cTiterSub",
+      "title": "Antigenic advance (sub model, postvax)",
       "type": "continuous"
     },
     {

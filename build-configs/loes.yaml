@@ -58,6 +58,11 @@ builds:
         loes:
             filters: "--exclude-all --include {include}"
       titer_collections:
-        - name: DRIVE
-          data: "loes-neutralization-models/build-configs/loes/231006_NT50spreandpost_30individuals_titers.tsv"
-          title: "High-throughput neutralization data from pre- and post-vaccination DRIVE cohort"
+        - name: DRIVE_prevaccination
+          data: "loes-neutralization-models/build-configs/loes/231006_NT50spreandpost_30individuals_titers/pre.tsv"
+          title: "High-throughput neutralization data from pre-vaccination DRIVE cohort"
+          prefix: DRIVE_pre_
+        - name: DRIVE_postvaccination
+          data: "loes-neutralization-models/build-configs/loes/231006_NT50spreandpost_30individuals_titers/post.tsv"
+          title: "High-throughput neutralization data from post-vaccination DRIVE cohort"
+          prefix: DRIVE_post_

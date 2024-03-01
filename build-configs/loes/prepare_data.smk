@@ -75,3 +75,17 @@ rule merge_titers_and_reference_strains_by_serum_id:
             | csvtk mutate2 -n source -e '"Loes2024"' \
             | csvtk cut -T -f virus_strain,serum_strain,serum_id,source,titer,individual,vaccination_status > {output.data}
         """
+
+rule filter_titers_by_vaccination_status:
+    input:
+        data="loes-neutralization-models/build-configs/loes/231006_NT50spreandpost_30individuals_titers.tsv",
+    output:
+        data="loes-neutralization-models/build-configs/loes/231006_NT50spreandpost_30individuals_titers/{vaccination_status}.tsv",
+    conda: "../../../workflow/envs/nextstrain.yaml"
+    shell:
+        """
+        csvtk filter2 \
+            -t \
+            -f '$vaccination_status=="{wildcards.vaccination_status}"' \
+            {input.data} > {output.data}
+        """
