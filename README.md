@@ -25,3 +25,9 @@ Run the workflow with the build config for this analysis.
 ``` bash
 nextstrain build . --configfile loes-2024-neutralization-nextstrain/build-configs/loes.yaml
 ```
+
+View the resulting tree and measurements panel locally.
+
+``` bash
+nextstrain view auspice
+```
