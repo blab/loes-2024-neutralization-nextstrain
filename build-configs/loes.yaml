@@ -42,7 +42,7 @@ recency:
   upper_bin_label: older
 
 builds:
-    loes:
+    loes-2024:
       lineage: "h1n1pdm"
       reference: "config/h1n1pdm/ha/reference.fasta"
       annotation: "config/h1n1pdm/ha/genemap.gff"

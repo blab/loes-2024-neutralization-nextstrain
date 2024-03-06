@@ -1,6 +1,6 @@
 # Analysis of neutralization data from Loes et al. 2024
 
-Phylogenetic analysis and visualization of H1N1pdm neutralization data from Loes et al. 2024
+Phylogenetic analysis and visualization of H1N1pdm neutralization data from [Loes et al. 2024](https://github.com/jbloomlab/flu_seqneut_DRIVE_2021-22_repeat_vax/).
 
 ## Run the workflow
 
