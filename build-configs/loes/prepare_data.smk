@@ -53,6 +53,7 @@ rule convert_neutralization_data_into_initial_titers_format:
         """
         csvtk mutate -f serum -n individual -p '^(.+)d\d+' {input.data} \
             | csvtk mutate -f serum -n day_order -p '.+d(\d+)$' \
+            | csvtk replace  -f day_order -p '^(.+)' -r 'day_$1' \
             | csvtk cut -f virus,titer,serum,individual,day_order \
             | csvtk rename -f virus,serum -n virus_strain,serum_id > {output.data}
         """
@@ -95,6 +96,6 @@ rule filter_titers_by_vaccination_status:
         """
         csvtk filter2 \
             -t \
-            -f '$day_order=={wildcards.day_order}' \
+            -f '$day_order=="{wildcards.day_order}"' \
             {input.data} > {output.data}
         """

@@ -59,14 +59,14 @@ builds:
             filters: "--exclude-all --include {include}"
       titer_collections:
         - name: DRIVE_prevaccination
-          data: "loes_data/standard_titers/0.tsv"
+          data: "loes_data/standard_titers/day_0.tsv"
           title: "High-throughput neutralization data from pre-vaccination DRIVE cohort"
           prefix: DRIVE_pre_
         - name: DRIVE_30_days_postvaccination
-          data: "loes_data/standard_titers/30.tsv"
+          data: "loes_data/standard_titers/day_30.tsv"
           title: "High-throughput neutralization data from 30 days post-vaccination DRIVE cohort"
           prefix: DRIVE_post_30_
         - name: DRIVE_182_days_postvaccination
-          data: "loes_data/standard_titers/182.tsv"
+          data: "loes_data/standard_titers/day_182.tsv"
           title: "High-throughput neutralization data from 182 days post-vaccination DRIVE cohort"
           prefix: DRIVE_post_182_
