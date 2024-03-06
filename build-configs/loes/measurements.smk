@@ -8,7 +8,7 @@ rule calculate_log2_titer_for_loes_measurements:
     conda: "../../../workflow/envs/nextstrain.yaml"
     shell:
         """
-        python3 loes-neutralization-models/scripts/calculate_log2_titer.py \
+        python3 loes-2024-neutralization-nextstrain/scripts/calculate_log2_titer.py \
             --titers {input.titers} \
             --output {output.titers}
         """

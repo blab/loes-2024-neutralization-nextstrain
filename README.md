@@ -6,6 +6,7 @@ Phylogenetic analysis and visualization of H1N1pdm neutralization data from [Loe
 
 ## Run the workflow
 
+[Install the Nextstrain CLI](https://docs.nextstrain.org/en/latest/install.html).
 Clone the seasonal flu workflow.
 
 ``` bash
@@ -16,17 +17,11 @@ cd seasonal-flu
 Clone this repository into the flu workflow directory.
 
 ``` bash
-git clone https://github.com/huddlej/loes-neutralization-models.git
-```
-
-Copy the neutralization data into the build config directory.
-
-``` bash
-cp ~/231006_NT50spreandpost_30individuals.csv loes-neutralization-models/build-configs/loes/
+git clone https://github.com/blab/loes-2024-neutralization-nextstrain.git
 ```
 
 Run the workflow with the build config for this analysis.
 
 ``` bash
-nextstrain build . --configfile loes-neutralization-models/build-configs/loes.yaml
+nextstrain build . --configfile loes-2024-neutralization-nextstrain/build-configs/loes.yaml
 ```

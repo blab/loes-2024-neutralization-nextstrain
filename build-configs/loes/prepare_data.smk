@@ -12,7 +12,7 @@ rule download_loes_neutralization_data:
 rule rename_strains_in_neutralization_data:
     input:
         data="loes_data/titers.csv",
-        strain_name_mapping="loes-neutralization-models/build-configs/loes/strain_name_mapping.tsv",
+        strain_name_mapping="loes-2024-neutralization-nextstrain/build-configs/loes/strain_name_mapping.tsv",
     output:
         data="loes_data/titers_renamed.csv",
     conda: "../../../workflow/envs/nextstrain.yaml"
