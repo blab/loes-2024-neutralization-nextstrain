@@ -2,9 +2,9 @@ ruleorder: concat_custom_measurements > concat_measurements
 
 rule calculate_log2_titer_for_loes_measurements:
     input:
-        titers="loes-neutralization-models/build-configs/loes/231006_NT50spreandpost_30individuals_titers.tsv",
+        titers="loes_data/standard_titers.tsv",
     output:
-        titers="loes-neutralization-models/build-configs/loes/231006_NT50spreandpost_30individuals_log2_titers.tsv",
+        titers="loes_data/log2_titers.tsv",
     conda: "../../../workflow/envs/nextstrain.yaml"
     shell:
         """
@@ -15,7 +15,7 @@ rule calculate_log2_titer_for_loes_measurements:
 
 rule export_loes_measurements:
     input:
-        titers="loes-neutralization-models/build-configs/loes/231006_NT50spreandpost_30individuals_log2_titers.tsv",
+        titers="loes_data/log2_titers.tsv",
     output:
         measurements="builds/{build_name}/{segment}/measurements_loes.json",
     conda: "../../../workflow/envs/nextstrain.yaml"
@@ -29,7 +29,7 @@ rule export_loes_measurements:
         grouping_columns=[
             "serum_id",
             "individual",
-            "vaccination_status",
+            "day_order",
         ],
         measurements_display="raw",
         include_columns=[
@@ -38,7 +38,7 @@ rule export_loes_measurements:
             "log2_titer",
             "serum_id",
             "individual",
-            "vaccination_status",
+            "day_order",
         ],
     shell:
         """
