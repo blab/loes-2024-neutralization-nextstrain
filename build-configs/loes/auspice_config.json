@@ -33,11 +33,6 @@
       "type": "categorical"
     },
     {
-      "key": "haplotype",
-      "title": "Derived haplotype",
-      "type": "categorical"
-    },
-    {
       "key": "DRIVE_pre_cTiter",
       "title": "Antigenic advance (tree model, prevax)",
       "type": "continuous"
