@@ -30,16 +30,9 @@ rule export_loes_measurements:
             "serum_id",
             "individual",
             "day_order",
+            "strain",
         ],
         measurements_display="raw",
-        include_columns=[
-            "virus_strain",
-            "titer",
-            "log2_titer",
-            "serum_id",
-            "individual",
-            "day_order",
-        ],
     shell:
         """
         augur measurements export \
@@ -54,7 +47,6 @@ rule export_loes_measurements:
             --measurements-display {params.measurements_display} \
             --show-threshold \
             --hide-overall-mean \
-            --include-columns {params.include_columns:q} \
             --minify-json \
             --output-json {output.measurements} 2>&1 | tee {log}
         """
