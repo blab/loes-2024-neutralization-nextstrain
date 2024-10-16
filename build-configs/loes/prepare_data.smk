@@ -2,7 +2,7 @@ rule download_loes_neutralization_data:
     output:
         data="loes_data/titers.csv",
     params:
-        data_url="https://raw.githubusercontent.com/jbloomlab/flu_seqneut_DRIVE_2021-22_repeat_vax/main/results/aggregated_titers/titers.csv",
+        data_url="https://raw.githubusercontent.com/jbloomlab/flu_seqneut_DRIVE_2021-22_repeat_vax/main/results/aggregated_titers/titers_DRIVE.csv",
     conda: "../../../workflow/envs/nextstrain.yaml"
     shell:
         """
