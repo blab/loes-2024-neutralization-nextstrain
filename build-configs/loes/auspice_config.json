@@ -141,7 +141,6 @@
     }
   ],
   "geo_resolutions": [
-    "division",
     "country",
     "region"
   ],
