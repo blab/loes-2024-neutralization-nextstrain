@@ -3,30 +3,6 @@ custom_rules:
   - loes-2024-neutralization-nextstrain/build-configs/loes/prepare_data.smk
   - loes-2024-neutralization-nextstrain/build-configs/loes/measurements.smk
 
-fasta_fields:
-  - strain
-  - virus
-  - segment
-  - accession
-  - date
-  - date_submitted
-  - region
-  - country
-  - division
-  - location
-  - passage_category
-  - originating_lab
-  - submitting_lab
-  - age
-  - gender
-prettify_fields:
-  - region
-  - country
-  - division
-  - location
-  - originating_lab
-  - submitting_lab
-
 lat-longs: "config/lat_longs.tsv"
 
 segments:
@@ -49,6 +25,7 @@ builds:
       tree_exclude_sites: "config/h1n1pdm/ha/exclude-sites.txt"
       clades: "config/h1n1pdm/ha/clades.tsv"
       subclades: "config/h1n1pdm/ha/subclades.tsv"
+      proposed_subclades: "config/h1n1pdm/ha/subclades.tsv"
       auspice_config: "loes-2024-neutralization-nextstrain/build-configs/loes/auspice_config.json"
       include: "loes-2024-neutralization-nextstrain/build-configs/loes/strains.txt"
       vaccines: "config/h1n1pdm/vaccine.json"
@@ -56,8 +33,10 @@ builds:
       enable_measurements: true
       subsamples:
         loes:
-            filters: "--exclude-all --include {include}"
+            filters: "--exclude-all --include {include} loes-2024-neutralization-nextstrain/build-configs/loes/hi_strains.txt"
       titer_collections:
+        - name: cdc_cell_hi
+          data: "data/h1n1pdm/cdc_ferret_cell_hi_titers.tsv"
         - name: DRIVE_prevaccination
           data: "loes_data/standard_titers/day_0.tsv"
           title: "High-throughput neutralization data from pre-vaccination DRIVE cohort"
