@@ -65,6 +65,16 @@
       "type": "continuous"
     },
     {
+      "key": "cTiter",
+      "title": "Antigenic advance (tree model, ferret HI)",
+      "type": "continuous"
+    },
+    {
+      "key": "cTiterSub",
+      "title": "Antigenic advance (sub model, ferret HI)",
+      "type": "continuous"
+    },
+    {
       "key": "cTiter_x",
       "title": "HI antigenic novelty",
       "type": "continuous"

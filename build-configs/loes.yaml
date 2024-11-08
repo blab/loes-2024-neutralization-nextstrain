@@ -33,7 +33,7 @@ builds:
       enable_measurements: true
       subsamples:
         loes:
-            filters: "--exclude-all --include {include} loes-2024-neutralization-nextstrain/build-configs/loes/hi_strains.txt"
+            filters: "--exclude-all --include {include}"
       titer_collections:
         - name: cdc_cell_hi
           data: "data/h1n1pdm/cdc_ferret_cell_hi_titers.tsv"
